@@ -23,7 +23,7 @@ jobs:
           r-version: '4.1'
 
       - name: Install deps
-        run: sudo apt-get install -y libcurl libcurl-dev
+        run: sudo apt-get install -y libcurl libcurl4-openssl-dev
 
       - uses: r-lib/actions/setup-renv@v2
 
