@@ -1,0 +1,42 @@
+# Workflow derived from https://github.com/r-lib/actions/tree/master/examples
+# Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+name: build
+
+jobs:
+  R-CMD-check:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      R_KEEP_PKG_SOURCE: yes
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: r-lib/actions/setup-r@v1
+        with:
+          use-public-rspm: true
+          r-version: '4.1'
+
+      - uses: r-lib/actions/setup-renv@v2
+
+      - name: build package
+        id: package
+        run: |
+          Rscript R/build_orgdb.R
+
+      - name: Create Release
+        id: create_release
+        #if: contains(github.ref, 'refs/tags/v')
+        uses: ncipollo/release-action@v1
+        with:
+          name: org.Taestivum.iwgsc.db
+          token: ${{ secrets.GITHUB_TOKEN }}
+          artifacts: "org.Taestivum.iwgsc.db_*.tar.gz"
+          draft: true
+          prerelease: true
+
