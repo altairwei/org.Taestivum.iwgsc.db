@@ -1,5 +1,7 @@
 #!/usr/bin/env Rscript
 
+library(GO.db)
+
 pkg_dir <- brookite::makeOrgDbFromBiomart(
   mart = "plants_mart",
   dataset = "taestivum_eg_gene",
