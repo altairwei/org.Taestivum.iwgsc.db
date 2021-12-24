@@ -34,7 +34,7 @@ jobs:
 
       - name: Create Release
         id: create_release
-        #if: contains(github.ref, 'refs/tags/v')
+        if: contains(github.ref, 'refs/tags/v')
         uses: ncipollo/release-action@v1
         with:
           name: org.Taestivum.iwgsc.db
