@@ -9,7 +9,7 @@ on:
 name: build
 
 jobs:
-  R-CMD-check:
+  build-pkg:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
