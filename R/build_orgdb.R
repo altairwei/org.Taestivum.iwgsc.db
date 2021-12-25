@@ -11,7 +11,7 @@ mart <- biomaRt::useMart(
 
 pkg_dir <- brookite::makeOrgDbFromBiomart(
   biomart = mart,
-  version = "0.0.1",
+  version = "0.0.2",
   maintainer = "Altair Wei <altair_wei@outlook.com>",
   author = "Altair Wei <altair_wei@outlook.com>",
   outputDir = ".",

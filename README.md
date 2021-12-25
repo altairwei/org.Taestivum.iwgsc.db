@@ -8,7 +8,7 @@ How to use:
 
 ```R
 # You can find OrgDb package on release page
-pkg_url = "https://github.com/altairwei/org.Taestivum.iwgsc.db/releases/download/v0.0.1/org.Taestivum.iwgsc.db_0.0.1.tar.gz"
+pkg_url = "https://github.com/altairwei/org.Taestivum.iwgsc.db/releases/download/v0.0.2/org.Taestivum.iwgsc.db_0.0.2.tar.gz"
 
 # Install OrgDb package via url
 remotes::install_url(pkg_url)
