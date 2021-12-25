@@ -1,3 +1,3 @@
 # org.Taestivum.iwgsc.db
 
-This repo generates wheat OrgDb package to release page.
+This repo will generate wheat OrgDb package on release page.
