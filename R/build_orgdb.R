@@ -2,10 +2,15 @@
 
 library(GO.db)
 
-pkg_dir <- brookite::makeOrgDbFromBiomart(
-  mart = "plants_mart",
+mart <- biomaRt::useMart(
+  biomart = "plants_mart",
+  version = "Ensembl Plants Genes 52",
   dataset = "taestivum_eg_gene",
-  host = "https://plants.ensembl.org",
+  host = "https://plants.ensembl.org"
+)
+
+pkg_dir <- brookite::makeOrgDbFromBiomart(
+  biomart = mart,
   version = "0.0.1",
   maintainer = "Altair Wei <altair_wei@outlook.com>",
   author = "Altair Wei <altair_wei@outlook.com>",
