@@ -21,4 +21,4 @@ odb <- org.Taestivum.iwgsc.db
 
 # See available data type
 keytypes(odb)
-``
+```
