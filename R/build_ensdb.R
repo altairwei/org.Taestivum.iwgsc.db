@@ -2,7 +2,7 @@
 
 args <- commandArgs(trailingOnly=TRUE)
 
-ensversion <- args[1]
+ensversion <- as.integer(args[1])
 pkgversion <- args[2]
 
 ensembldb::fetchTablesFromEnsembl(
