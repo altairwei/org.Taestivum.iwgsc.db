@@ -48,7 +48,7 @@ jobs:
 
       - name: Build EnsDb Package
         run: |
-          Rscript R/build_ensdb.R ${{ secrets.ENS_VERSION }} 0.0.0.9000
+          Rscript R/build_ensdb.R ${{ env.ENS_VERSION }} 0.0.0.9000
 
       - name: Create Release
         id: create_release
