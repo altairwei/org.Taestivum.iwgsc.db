@@ -43,12 +43,10 @@ jobs:
       #  uses: lhotari/action-upterm@v1
 
       - name: Build OrgDb Package
-        id: package
         run: |
           Rscript R/build_orgdb.R ${{ env.ENS_URL }} 'Ensembl Plants Genes ${{ env.ENS_GENOMES }}' 0.0.2
 
       - name: Build EnsDb Package
-        id: package
         run: |
           Rscript R/build_ensdb.R ${{ secrets.ENS_VERSION }} 0.0.0.9000
 
