@@ -10,6 +10,11 @@ on:
 
 name: build
 
+env:
+  ENS_VERSION: 105
+  ENS_GENOMES: 52
+  ENS_URL: https://dec2021-plants.ensembl.org
+
 jobs:
   build-pkg:
     runs-on: ubuntu-latest
@@ -30,17 +35,22 @@ jobs:
           sudo cpan DBI DBD::mysql JSON LWP::Simple Module::Build List::MoreUtils
 
       - name: Install Ensmebl Perl API
-        run: ./scripts/install_ensembl_api.sh 101
+        run: ./scripts/install_ensembl_api.sh ${{ env.ENS_VERSION }}
 
       - uses: r-lib/actions/setup-renv@v2
 
-      - name: Debugging with ssh
-        uses: lhotari/action-upterm@v1
+      #- name: Debugging with ssh
+      #  uses: lhotari/action-upterm@v1
 
-      - name: build package
+      - name: Build OrgDb Package
         id: package
         run: |
-          Rscript R/build_orgdb.R
+          Rscript R/build_orgdb.R ${{ env.ENS_URL }} 'Ensembl Plants Genes ${{ env.ENS_GENOMES }}' 0.0.2
+
+      - name: Build EnsDb Package
+        id: package
+        run: |
+          Rscript R/build_ensdb.R ${{ secrets.ENS_VERSION }} 0.0.0.9000
 
       - name: Create Release
         id: create_release

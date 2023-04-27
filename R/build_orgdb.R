@@ -1,17 +1,23 @@
 #!/usr/bin/env Rscript
 
+args <- commandArgs(trailingOnly=TRUE)
+
+website <- args[1]
+dataversion <- args[2]
+pkgversion <- args[3]
+
 library(GO.db)
 
 mart <- biomaRt::useMart(
   biomart = "plants_mart",
-  version = "Ensembl Plants Genes 52",
+  version = dataversion,
   dataset = "taestivum_eg_gene",
-  host = "https://eg52-plants.ensembl.org"
+  host = website
 )
 
 pkg_dir <- brookite::makeOrgDbFromBiomart(
   biomart = mart,
-  version = "0.0.2",
+  version = pkgversion,
   maintainer = "Altair Wei <altair_wei@outlook.com>",
   author = "Altair Wei <altair_wei@outlook.com>",
   outputDir = ".",
