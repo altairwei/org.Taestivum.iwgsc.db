@@ -6,7 +6,7 @@ mart <- biomaRt::useMart(
   biomart = "plants_mart",
   version = "Ensembl Plants Genes 52",
   dataset = "taestivum_eg_gene",
-  host = "https://plants.ensembl.org"
+  host = "https://eg52-plants.ensembl.org"
 )
 
 pkg_dir <- brookite::makeOrgDbFromBiomart(
