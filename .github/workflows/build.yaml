@@ -54,11 +54,11 @@ jobs:
         run: |
           Rscript R/build_orgdb.R ${{ env.ENS_URL }} 'Ensembl Plants Genes ${{ env.ENS_GENOMES }}' 0.0.2
 
-      - name: Build EnsDb Package
+      #- name: Build EnsDb Package
         # Use login shell to source .bashrc/.bash_profile automatically
-        shell: /usr/bin/bash -le {0}
-        run: |
-          Rscript R/build_ensdb.R ${{ env.ENS_VERSION }} 0.0.0.9000
+      #  shell: /usr/bin/bash -le {0}
+      #  run: |
+      #    Rscript R/build_ensdb.R ${{ env.ENS_VERSION }} 0.0.0.9000
 
       - name: Create Release
         id: create_release
