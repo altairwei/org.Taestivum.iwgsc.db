@@ -43,11 +43,12 @@ jobs:
       #- name: Debugging with ssh
       #  uses: lhotari/action-upterm@v1
 
-      - name: Build EnsDb Package
+      # The time to build EnsDb exceeds GitHub Actions's timeout
+      #- name: Build EnsDb Package
         # Use login shell to source .bashrc/.bash_profile automatically
-        shell: /usr/bin/bash -le {0}
-        run: |
-          Rscript R/build_ensdb.R ${{ env.ENS_VERSION }} 0.0.0.9000
+      #  shell: /usr/bin/bash -le {0}
+      #  run: |
+      #    Rscript R/build_ensdb.R ${{ env.ENS_VERSION }} 0.0.0.9000
 
       - name: Build OrgDb Package
         run: |
